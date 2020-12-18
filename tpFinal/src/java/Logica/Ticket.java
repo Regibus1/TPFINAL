@@ -2,14 +2,13 @@
 package Logica;
 
 import java.io.Serializable;
-import java.sql.Time;
+import java.sql.Date;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class Ticket implements Serializable {
@@ -17,15 +16,15 @@ public class Ticket implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idTicket;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Time fechaVenta;
+    @Basic
+    private Date fechaVenta;
     @OneToOne
     private Juego unJuego;
 
     public Ticket() {
     }
 
-    public Ticket(int idTicket, Time fechaVenta, Juego unJuego) {
+    public Ticket(int idTicket,Date fechaVenta, Juego unJuego) {
         this.idTicket = idTicket;
         this.fechaVenta = fechaVenta;
         this.unJuego = unJuego;
@@ -39,11 +38,11 @@ public class Ticket implements Serializable {
         this.idTicket = idTicket;
     }
 
-    public Time getFechaVenta() {
+    public Date getFechaVenta() {
         return fechaVenta;
     }
 
-    public void setFechaVenta(Time fechaVenta) {
+    public void setFechaVenta(Date fechaVenta) {
         this.fechaVenta = fechaVenta;
     }
 

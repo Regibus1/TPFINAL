@@ -69,7 +69,7 @@
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Configuracion de los juegos recreativos del parque</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -78,25 +78,160 @@
                                             <div class="row">
                                                 <div class="col-4">
                                                     <div class="list-group" id="list-tab" role="tablist">
-                                                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-                                                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-                                                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-                                                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+                                                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Crear Nuevo</a>
+                                                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Editar</a>
+                                                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Buscar</a>
+                                                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Eliminar</a>
                                                     </div>
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="tab-content" id="nav-tabContent">
-                                                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"></div>
-                                                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-                                                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-                                                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+                                                        <form action="HomeServlet" method="post">
+                                                            <div class="tab-pane fade show active text-left" id="list-home" role="tabpanel" aria-labelledby="list-home-list" >
+                                                                <div class="form-group">
+
+                                                                    <label for="inputJuego">Nombre del Juego</label>
+                                                                    <input type="text" class="form-control" placeholder="'Montaña Rusa'" required name="nombreJuego">
+                                                                </div>
+
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="inputEdad">Edad Mínima</label>
+                                                                        <select id="inputEdad" class="form-control" required name="edadMinima">
+                                                                            <option selected>Elige una edad mínima...</option>
+                                                                            <option>0</option>
+                                                                            <option>1</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                            <option>5</option>
+                                                                            <option>6</option>
+                                                                            <option>7</option>
+                                                                            <option>8</option>
+                                                                            <option>9</option>
+                                                                            <option>10</option>
+                                                                            <option>11</option>
+                                                                            <option>12</option>
+                                                                            <option>13</option>
+                                                                            <option>14</option>
+                                                                            <option>15</option>
+                                                                            <option>16</option>
+                                                                            <option>17</option>
+                                                                            <option>18</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="inputCapacidad">Capacidad Máxima</label>
+                                                                        <select id="inputCapacidad" class="form-control" required name="capacidad">
+                                                                            <option selected>Elige la capacidad máx...</option>
+                                                                            <option>5</option>
+                                                                            <option>10</option>
+                                                                            <option>15</option>
+                                                                            <option>20</option>
+                                                                            <option>25</option>
+                                                                            <option>30</option>
+                                                                            <option>35</option>
+                                                                            <option>40</option>
+                                                                            <option>45</option>
+                                                                            <option>50</option>
+                                                                            <option>55</option>
+                                                                            <option>60</option>
+                                                                            <option>65</option>
+                                                                            <option>70</option>
+                                                                            <option>75</option>
+                                                                            <option>80</option>
+                                                                            <option>85</option>
+                                                                            <option>90</option>
+                                                                            <option>95</option>
+                                                                            <option>100</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="inputTiempo">Hora Apertura</label>
+                                                                        <select id="inputTiempo" class="form-control" required name="horaApertura">
+                                                                            <option selected>Elige hora apertura...</option>
+                                                                            <option>08:00:00</option>
+                                                                            <option>09:00:00</option>
+                                                                            <option>10:00:00</option>
+                                                                            <option>11:00:00</option>
+                                                                            <option>12:00:00</option>
+                                                                            <option>13:00:00</option>
+                                                                            <option>14:00:00</option>
+                                                                            <option>15:00:00</option>
+                                                                            <option>16:00:00</option>
+                                                                            <option>17:00:00</option>
+                                                                            <option>18:00:00</option>
+                                                                            <option>19:00:00</option>
+                                                                            <option>20:00:00</option>
+                                                                            <option>21:00:00</option>
+                                                                            <option>22:00:00</option>
+                                                                            <option>23:00:00</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="inputCloseTime">Hora Cierre</label>
+                                                                        <select id="inputCloseTime" class="form-control" required name="horaCierre">
+                                                                            <option selected>Elige hora cierre...</option>
+                                                                            <option>08:00:00</option>
+                                                                            <option>09:00:00</option>
+                                                                            <option>10:00:00</option>
+                                                                            <option>11:00:00</option>
+                                                                            <option>12:00:00</option>
+                                                                            <option>13:00:00</option>
+                                                                            <option>14:00:00</option>
+                                                                            <option>15:00:00</option>
+                                                                            <option>16:00:00</option>
+                                                                            <option>17:00:00</option>
+                                                                            <option>18:00:00</option>
+                                                                            <option>19:00:00</option>
+                                                                            <option>20:00:00</option>
+                                                                            <option>21:00:00</option>
+                                                                            <option>22:00:00</option>
+                                                                            <option>23:00:00</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                            <div class="tab-pane fade text-left" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                                                                <div class="form-group">
+                                                                    <label for="nombreJuego">Nombre Juego</label>
+                                                                    <select id="nombreJuego" class="form-control">
+                                                                        <option selected>Elige uno para editar sus datos..</option>
+                                                                        <option>...</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane fade text-left" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                                                                <div class="form-group">
+                                                                    <div class="form-group row">
+                                                                        <input type="text" placeholder="'La Noria'" class="form-control col-md-10">
+
+
+                                                                        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="tab-pane fade text-left" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                                                                <div class="form-group">
+                                                                    <label for="nombreJuego">Lista de juegos</label>
+                                                                    <select id="nombreJuego" class="form-control">
+                                                                        <option selected>Elige que desee eliminar..</option>
+                                                                        <option>...</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </div>
                                 </div>

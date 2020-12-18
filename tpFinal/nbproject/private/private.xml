@@ -6,10 +6,13 @@
             <file>file:/C:/Users/Elias/TPFINAL/tpFinal/web/home.jsp</file>
             <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Logica/Controladora.java</file>
             <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Servlets/MainServlet.java</file>
+            <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Servlets/pruebaServlet.java</file>
             <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Servlets/RegistroServlet.java</file>
             <file>file:/C:/Users/Elias/TPFINAL/tpFinal/web/index.jsp</file>
-            <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Persistencia/ControladoraPersistencia.java</file>
+            <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Servlets/HomeServlet.java</file>
             <file>file:/C:/Users/Elias/TPFINAL/tpFinal/web/registro.jsp</file>
+            <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Persistencia/ControladoraPersistencia.java</file>
+            <file>file:/C:/Users/Elias/TPFINAL/tpFinal/src/java/Logica/Juego.java</file>
         </group>
     </open-files>
 </project-private>

@@ -15,37 +15,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "MainServlet", urlPatterns = {"/MainServlet"})
-public class MainServlet extends HttpServlet {
+@WebServlet(name = "HomeServlet", urlPatterns = {"/HomeServlet"})
+public class HomeServlet extends HttpServlet {
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombreUsuario = request.getParameter("user");
-        String claveUsuario = request.getParameter("clave");
         
-        if((nombreUsuario.equals("admin")) && (claveUsuario.equals("admin"))){
-            response.sendRedirect("home.jsp");  
-        }
-        else{
-            response.sendRedirect("registro.jsp");
-        }
+        String nombreJuego = request.getParameter("nombreJuego");
+        int edadMinima = Integer.parseInt(request.getParameter("edadMinima"));
+        int capacidadMaxima = Integer.parseInt(request.getParameter("capacidad"));
+        String horaApertura = request.getParameter("horaApertura");
+        String horaCierre = request.getParameter("horaCierre");
         
+        Controladora control = new Controladora();
+        control.crearJuego(nombreJuego, edadMinima, capacidadMaxima);
+        
+        response.sendRedirect("index.jsp");
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

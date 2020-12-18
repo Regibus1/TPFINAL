@@ -6,8 +6,6 @@
     <class>Logica.Empleado</class>
     <class>Logica.Administrador</class>
     <class>Logica.Juego</class>
-    <class>Logica.Horario</class>
-    <class>Logica.Ticket</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/parque_de_diversion?zeroDateTimeBehavior=convertToNull"/>

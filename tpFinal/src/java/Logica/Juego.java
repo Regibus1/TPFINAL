@@ -18,7 +18,7 @@ public class Juego implements Serializable {
     private int idJuego;
     @Basic
     private String nombreJuego;
-    private String capacidadMax;
+    private int capacidadMax;
     private int edadMinima;
     @OneToMany
     private List<Horario> listaHorarios;
@@ -28,7 +28,7 @@ public class Juego implements Serializable {
     public Juego() {
     }
 
-    public Juego(int idJuego, String nombreJuego, String capacidadMax, int edadMinima, List<Horario> listaHorarios, List<Empleado> listaEmpleados) {
+    public Juego(int idJuego, String nombreJuego, int capacidadMax, int edadMinima, List<Horario> listaHorarios, List<Empleado> listaEmpleados) {
         this.idJuego = idJuego;
         this.nombreJuego = nombreJuego;
         this.capacidadMax = capacidadMax;
@@ -71,11 +71,11 @@ public class Juego implements Serializable {
         this.nombreJuego = nombreJuego;
     }
 
-    public String getCapacidadMax() {
+    public int getCapacidadMax() {
         return capacidadMax;
     }
 
-    public void setCapacidadMax(String capacidadMax) {
+    public void setCapacidadMax(int capacidadMax) {
         this.capacidadMax = capacidadMax;
     }
 

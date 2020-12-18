@@ -47,6 +47,9 @@ public class RegistroServlet extends HttpServlet {
             control.crearEmpleado(nombreEmpleado, apellidoEmpleado, dniEmpleado, paisEmpleado);
             response.sendRedirect("index.jsp");
         }
+        else{
+            response.sendRedirect("registro.jsp");
+        }
 
 
     }

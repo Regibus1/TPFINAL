@@ -3,6 +3,7 @@ package Persistencia;
 
 import Logica.Administrador;
 import Logica.Empleado;
+import Logica.Juego;
 import Logica.Usuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,10 @@ public class ControladoraPersistencia {
 
     public void crearAdmin(Administrador unAdmin) {
             adminJPA.create(unAdmin);
+    }
+
+    public void crearJuego(Juego unJuego) {
+            juegoJPA.create(unJuego);
     }
     
  

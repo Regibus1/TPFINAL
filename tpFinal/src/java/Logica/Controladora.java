@@ -30,4 +30,12 @@ public class Controladora {
         
         controlPersistencia.crearAdmin(unAdmin);
     }
+
+    public void crearJuego(String nombreJuego, int edadMinima, int capacidadMax) {
+         Juego unJuego = new Juego();
+         unJuego.setNombreJuego(nombreJuego);
+         unJuego.setEdadMinima(edadMinima);
+         unJuego.setCapacidadMax(capacidadMax);
+         controlPersistencia.crearJuego(unJuego);
+    }
 }

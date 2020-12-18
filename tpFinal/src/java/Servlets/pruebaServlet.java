@@ -24,16 +24,7 @@ public class pruebaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nombre = request.getParameter("user");
-        String clave = request.getParameter("clave");
-        
-        request.getSession().setAttribute("user", nombre);
-        request.getSession().setAttribute("clave", clave);
-        
-        response.sendRedirect("registro.jsp");
-        
-        Controladora control = new Controladora();
-        control.crearUsuario(nombre, clave);
+      response.sendRedirect("index.jsp");
     }
 
 

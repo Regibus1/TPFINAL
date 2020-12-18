@@ -25,3 +25,6 @@ and open the template in the editor.
     appearance: none;
 }
 
+.p-2{
+    padding: .5rem !important;
+}

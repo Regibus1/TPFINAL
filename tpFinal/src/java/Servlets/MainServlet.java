@@ -1,8 +1,13 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
 import Logica.Controladora;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,37 +21,33 @@ public class MainServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
-
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-        String nombreEmpleado = request.getParameter("nombre");
-        String apellidoEmpleado = request.getParameter("apellido");
-        String nombreUsuario = request.getParameter("username");
-        String claveUsuario = request.getParameter("clave");
-        String claveRepetida = request.getParameter("repetido");
-        String dniEmpleado = request.getParameter("dni");
-        String calleEmpleado = request.getParameter("calle");
-        String numeroCalle = request.getParameter("numeroCalle");
-        String paisEmpleado = request.getParameter("pais");
-        String localidadEmpleado = request.getParameter("localidad");
-        String codigoPostal = request.getParameter("zipcode");
+        String nombre = request.getParameter("user");
+        String clave = request.getParameter("clave");
         
+        request.getSession().setAttribute("user", nombre);
+        request.getSession().setAttribute("clave", clave);
         
-        Controladora control = new Controladora();
-        control.crearUsuario(nombreUsuario, claveUsuario);
-        control.crearEmpleado(nombreEmpleado, apellidoEmpleado, dniEmpleado, paisEmpleado);
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("home.jsp");
+
+        
     }
 
-
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

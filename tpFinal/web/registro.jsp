@@ -12,15 +12,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-        <title>Registro nuevo usuario</title>
+        <title>Formulario de Registro</title>
 
-        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
 
         <!-- Bootstrap core CSS -->
-        <link href="boostrap/css/bootstrap.min.css" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
         <!-- Custom styles for this template -->
         <link href="css/form.css" rel="stylesheet">
     </head>
@@ -31,14 +32,14 @@
             <div class="py-5 text-center">
                 <img class="d-block mx-auto mb-4" src="css/img/park.png" alt="" width="72" height="72">
                 <h2>Formulario de Registro</h2>
-                <p class="lead">Debajo te encontras con formulario para registro para nuevos empleados</p>
+                <p class="lead">Debajo te encuentras con un formulario de registro para nuevos empleados</p>
             </div>
 
             <div class="row">
 
                 <div class="col-md-8 order-md-1 mx-auto">
                     <h4 class="mb-3">Datos Personales</h4>
-                    <form class="needs-validation" novalidate action="MainServlet" method="post">
+                    <form class="needs-validation" novalidate action="RegistroServlet" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">Nombre</label>
@@ -74,7 +75,7 @@
                                 <label for="password">Contraseña</label>
                                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="clave">
                                 <div class="invalid-feedback">
-                                    Password requerido
+                                    Password requerido.
                                 </div>
                             </div>
 
@@ -82,7 +83,7 @@
                                 <label for="password">Repetir </label>
                                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="repetido">
                                 <div class="invalid-feedback">
-                                    Password requerido
+                                    Password requerido.
                                 </div>
                             </div>  
                         </div>
@@ -92,7 +93,7 @@
                             <label for="document">DNI</label>
                             <input type="text" class="form-control" id="document" placeholder="" required name="dni">
                             <div class="invalid-feedback">
-                                DNI requerido
+                                DNI requerido.
                             </div>
                         </div>
 
@@ -417,51 +418,75 @@
                             </div>
                         </div>
 
+                        <hr class="mb-4"> 
+
+                        <div class="mb-3">
+                            <label for="clave">Contraseña del Administrador</label>
+                            <div class="input-group">
+
+                                <input type="password" id="inputPassword" class="form-control" placeholder="" required name="claveAdmin">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-secondary" onclick="comprobarClave()">Probar</button>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Contraseña del Admin requerido para finalizar el proceso.
+                                </div>
+                            </div>
+
+                        </div>
+
                         <hr class="mb-4">
                         <button class="btn btn-primary btn-lg btn-block col-md-12" type="submit">Finalizar Registro</button>
                     </form>
+
+
+
                 </div>
+
+                <footer class="my-5 pt-5 order-2 text-muted text-center text-small">
+                    <p class="mb-1">&copy; 2020 Abdias Jimenez</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Privacy</a></li>
+                        <li class="list-inline-item"><a href="#">Terms</a></li>
+                        <li class="list-inline-item"><a href="#">Support</a></li>
+                    </ul>
+                </footer>
             </div>
 
-            <footer class="my-5 pt-5 text-muted text-center text-small">
-                <p class="mb-1">&copy; 2020 Abdias Jimenez</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#">Privacy</a></li>
-                    <li class="list-inline-item"><a href="#">Terms</a></li>
-                    <li class="list-inline-item"><a href="#">Support</a></li>
-                </ul>
-            </footer>
-        </div>
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-        <script src="../../assets/js/vendor/popper.min.js"></script>
-        <script src="../../dist/js/bootstrap.min.js"></script>
-        <script src="../../assets/js/vendor/holder.min.js"></script>
-        <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-            (function () {
-                'use strict';
+            <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>');</script>
+            <script>
+                function comprobarClave() {
+                    document.forms[0].action = "pruebaServlet";
+                    document.forms[0].submit();
+                }
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                (function () {
+                    'use strict';
 
-                window.addEventListener('load', function () {
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    var forms = document.getElementsByClassName('needs-validation');
+                    window.addEventListener('load', function () {
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.getElementsByClassName('needs-validation');
 
-                    // Loop over them and prevent submission
-                    var validation = Array.prototype.filter.call(forms, function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (form.checkValidity() === false) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        }, false);
-                    });
-                }, false);
-            })();
-        </script>
+                        // Loop over them and prevent submission
+                        var validation = Array.prototype.filter.call(forms, function (form) {
+                            form.addEventListener('submit', function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+                        });
+                    }, false);
+                })();
+            </script>
+
+            
+
+
     </body>
 </html>

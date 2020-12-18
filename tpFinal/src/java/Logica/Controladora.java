@@ -25,4 +25,9 @@ public class Controladora {
         unEmpleado.setPais(pais);
         controlPersistencia.crearEmpleado(unEmpleado);
     }
+    
+    public void crearAdmin(Administrador unAdmin){
+        
+        controlPersistencia.crearAdmin(unAdmin);
+    }
 }

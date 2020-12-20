@@ -7,7 +7,6 @@ package Servlets;
 
 import Logica.Controladora;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +28,7 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Controladora control = new Controladora();
         String nombreUsuario = request.getParameter("user");
         String claveUsuario = request.getParameter("clave");
         
@@ -38,7 +38,6 @@ public class MainServlet extends HttpServlet {
         else{
             response.sendRedirect("registro.jsp");
         }
-        
     }
 
     /**

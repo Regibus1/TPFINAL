@@ -2,6 +2,7 @@
 package Servlets;
 
 import Logica.Controladora;
+import Logica.Empleado;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -24,7 +25,6 @@ public class pruebaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-      response.sendRedirect("index.jsp");
     }
 
 

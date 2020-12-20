@@ -2,6 +2,8 @@
 package Logica;
 
 import Persistencia.ControladoraPersistencia;
+import java.sql.Time;
+import java.util.List;
 
 
 public class Controladora {
@@ -38,4 +40,40 @@ public class Controladora {
          unJuego.setCapacidadMax(capacidadMax);
          controlPersistencia.crearJuego(unJuego);
     }
+
+    public void crearHorario(String horaApertura, String horaCierre) {
+         Horario unHorario = new Horario();
+         unHorario.setHoraApertura(Time.valueOf(horaApertura));
+         unHorario.setHoraCierre(Time.valueOf(horaCierre));
+         controlPersistencia.crearHorario(unHorario);
+    }
+
+  
+
+    public void editarJuego(Juego unJuego) {
+        controlPersistencia.editarJuego(unJuego);
+    }
+
+    public void editarHorario(Horario unHorario) {
+        controlPersistencia.editarHorario(unHorario);
+    }
+
+    public List<Horario> buscarHorario() {
+        List<Horario> listaHorario = controlPersistencia.buscarHorario();
+        return listaHorario;
+    }
+
+    public List<Juego> buscarJuego() {
+        List<Juego> listaJuego = controlPersistencia.buscarJuego();
+        return listaJuego;
+    }
+
+    public Juego buscarUnJuego(int idBusqueda) {
+       Juego unJuego = controlPersistencia.buscarUnJuego(idBusqueda);
+        return unJuego;
+    }
+
+
+
+ 
 }

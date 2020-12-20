@@ -40,6 +40,7 @@
                 <div class="col-md-8 order-md-1 mx-auto">
                     <h4 class="mb-3">Datos Personales</h4>
                     <form class="needs-validation" novalidate action="RegistroServlet" method="post">
+                        <input type="hidden" name="formulario" value="form">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="firstName">Nombre</label>
@@ -443,7 +444,7 @@
 
                 </div>
 
-                <footer class="my-5 pt-5 order-2 text-muted text-center text-small">
+                <footer class="my-5 pt-5 order-4 text-muted text-center text-small">
                     <p class="mb-1">&copy; 2020 Abdias Jimenez</p>
                     <ul class="list-inline">
                         <li class="list-inline-item"><a href="#">Privacy</a></li>

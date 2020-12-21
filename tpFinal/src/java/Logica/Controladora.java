@@ -26,11 +26,7 @@ public class Controladora {
         unEmpleado.setPais(pais);
         controlPersistencia.crearEmpleado(unEmpleado);
     }
-    
-    public void crearAdmin(Administrador unAdmin){
-        
-        controlPersistencia.crearAdmin(unAdmin);
-    }
+ 
 
     public void crearJuego(String nombreJuego, int edadMinima, int capacidadMax) {
          Juego unJuego = new Juego();
@@ -117,6 +113,15 @@ public class Controladora {
                 }
         }
         return siONo;
+    }
+
+    public Ticket buscarUnTicket(int idTicket) {
+        Ticket unTicket =controlPersistencia.buscarUnTicket(idTicket);
+        return unTicket;
+    }
+
+    public void eliminarTicket(int idTicket) {
+        controlPersistencia.eliminarTicket(idTicket);
     }
 
  

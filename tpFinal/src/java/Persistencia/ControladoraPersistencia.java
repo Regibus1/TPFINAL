@@ -1,10 +1,11 @@
 
 package Persistencia;
 
-import Logica.Administrador;
+
 import Logica.Empleado;
 import Logica.Horario;
 import Logica.Juego;
+import Logica.Ticket;
 import Logica.Usuario;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ public class ControladoraPersistencia {
     
     UsuarioJpaController usuarioJPA = new UsuarioJpaController();
     EmpleadoJpaController empleadoJPA = new EmpleadoJpaController();
-    AdministradorJpaController adminJPA = new AdministradorJpaController();
     JuegoJpaController juegoJPA = new JuegoJpaController();
     HorarioJpaController horarioJPA = new HorarioJpaController();
     TicketJpaController ticketJPA = new TicketJpaController();
@@ -34,9 +34,7 @@ public class ControladoraPersistencia {
             empleadoJPA.create(unEmpleado);
     }
 
-    public void crearAdmin(Administrador unAdmin) {
-            adminJPA.create(unAdmin);
-    }
+
 
     public void crearJuego(Juego unJuego) {
             juegoJPA.create(unJuego);
@@ -133,6 +131,19 @@ public class ControladoraPersistencia {
     public void eliminarUsuario(int idUsuario) {
         try {
             usuarioJPA.destroy(idUsuario);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Ticket buscarUnTicket(int idTicket) {
+        Ticket unTicket = ticketJPA.findTicket(idTicket);
+        return unTicket;
+    }
+
+    public void eliminarTicket(int idTicket) {
+        try {
+            ticketJPA.destroy(idTicket);
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -3,6 +3,7 @@ package Logica;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -52,6 +53,14 @@ public class Ticket implements Serializable {
 
     public void setUnJuego(Juego unJuego) {
         this.unJuego = unJuego;
+    }
+
+    public String toString(Ticket unTicket) {
+        Controladora control = new Controladora();
+        List<Juego> listaJuego = control.buscarJuego();
+        String toString = "Nro Ticket: " + unTicket.getIdTicket() + " || Nombre Juego:" + listaJuego.get(unTicket.getIdTicket()).getNombreJuego() +
+                " || Fecha compra:  " + unTicket.getFechaVenta(); 
+        return toString;
     }
     
     

@@ -424,7 +424,7 @@
 
                                                         <!--Formulario para crear Empleado -->
 
-                                                        <form action="EmpleadoServ" method="post" class="tab-pane fade show active text-left" role="tabpanel" id="list-home2" aria-labelledby="list-home-list2">
+                                                        <form action="EmpleadoServlet" method="post" class="tab-pane fade show active text-left" role="tabpanel" id="list-home2" aria-labelledby="list-home-list2">
                                                             <input name="empleadoForm" value="crear" type="hidden">
                                                             <div class="form-group">
                                                                 <button type="submit" class="btn btn-outline-primary col-md-12 " class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >Click aquí para crear un nuevo empleado</button>
@@ -935,27 +935,8 @@
                                                                                 </div>
                                                                             </div> 
                                                                             <div class="form-group col-md-12">
-                                                                                <label for="inputTime" > Horario </label>
-                                                                                <select id="inputTime" class="form-control" required name="horarioTicket">
-                                                                                    <option selected>Elige hora para utilizar la entrada...</option>
-                                                                                    <option>08:00:00</option>
-                                                                                    <option>09:00:00</option>
-                                                                                    <option>10:00:00</option>
-                                                                                    <option>11:00:00</option>
-                                                                                    <option>12:00:00</option>
-                                                                                    <option>13:00:00</option>
-                                                                                    <option>14:00:00</option>
-                                                                                    <option>15:00:00</option>
-                                                                                    <option>16:00:00</option>
-                                                                                    <option>17:00:00</option>
-                                                                                    <option>18:00:00</option>
-                                                                                    <option>19:00:00</option>
-                                                                                    <option>20:00:00</option>
-                                                                                    <option>21:00:00</option>
-                                                                                    <option>22:00:00</option>
-                                                                                    <option>23:00:00</option>
-                                                                                </select>
-
+                                                                                <label for="fechaVenta">Fecha de Venta</label>
+                                                                                <input type="text" class="form-control" placeholder="'21/12/2020'" name="fechaVenta"> 
                                                                             </div>
 
 
@@ -968,7 +949,7 @@
 
                                                             <!--Buscador de Juego-->        
                                                             <form action="TicketServlet" class="tab-pane fade text-left" target="request" id="list-messages3" role="tabpanel" aria-labelledby="list-messages-list3" method="post">
-                                                                <input name="juegoForm" value="buscar" type="hidden">
+                                                                <input name="ticketForm" value="buscar" type="hidden">
                                                                 <div class="form-group">
                                                                     <div class="form-group row">
                                                                         <input id="busqueda"type="text" placeholder="'Coloque el nro de su ticket..'" class="form-control col-md-10" name="busqueda">

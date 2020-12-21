@@ -32,11 +32,15 @@ public class MainServlet extends HttpServlet {
         String nombreUsuario = request.getParameter("user");
         String claveUsuario = request.getParameter("clave");
         
-        if((nombreUsuario.equals("admin")) && (claveUsuario.equals("admin"))){
-            response.sendRedirect("home.jsp");  
+        boolean estaONo = false;
+        
+        estaONo = control.comprobarIngreso(nombreUsuario, claveUsuario);
+        
+        if(estaONo){
+            response.sendRedirect("home.jsp");
         }
         else{
-            response.sendRedirect("registro.jsp");
+            
         }
     }
 

@@ -2,6 +2,7 @@
 package Logica;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -81,5 +82,12 @@ public class Empleado implements Serializable {
 
     public void setUnUsuario(Usuario unUsuario) {
         this.unUsuario = unUsuario;
+    }
+
+    public String toString(Empleado unEmpleado) {
+       Controladora control = new Controladora();
+        String stringEmpleado = "Nombre: " + unEmpleado.getNombre() + "  | Apellido: " + unEmpleado.getApellido() +
+                "  | Dni: " + unEmpleado.getDni() + "  | Pais de Nacimiento: " + unEmpleado.getPais() ;
+        return stringEmpleado;
     }
 }

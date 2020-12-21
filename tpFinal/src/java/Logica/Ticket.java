@@ -17,14 +17,14 @@ public class Ticket implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idTicket;
     @Basic
-    private Date fechaVenta;
+    private String fechaVenta;
     @OneToOne
     private Juego unJuego;
 
     public Ticket() {
     }
 
-    public Ticket(int idTicket,Date fechaVenta, Juego unJuego) {
+    public Ticket(int idTicket,String fechaVenta, Juego unJuego) {
         this.idTicket = idTicket;
         this.fechaVenta = fechaVenta;
         this.unJuego = unJuego;
@@ -38,11 +38,11 @@ public class Ticket implements Serializable {
         this.idTicket = idTicket;
     }
 
-    public Date getFechaVenta() {
+    public String getFechaVenta() {
         return fechaVenta;
     }
 
-    public void setFechaVenta(Date fechaVenta) {
+    public void setFechaVenta(String fechaVenta) {
         this.fechaVenta = fechaVenta;
     }
 

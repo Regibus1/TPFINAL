@@ -2,7 +2,6 @@
 package Logica;
 
 import Persistencia.ControladoraPersistencia;
-import java.sql.Time;
 import java.util.List;
 
 
@@ -43,8 +42,8 @@ public class Controladora {
 
     public void crearHorario(String horaApertura, String horaCierre) {
          Horario unHorario = new Horario();
-         unHorario.setHoraApertura(Time.valueOf(horaApertura));
-         unHorario.setHoraCierre(Time.valueOf(horaCierre));
+         unHorario.setHoraApertura(horaApertura);
+         unHorario.setHoraCierre(horaCierre);
          controlPersistencia.crearHorario(unHorario);
     }
 
@@ -72,6 +71,55 @@ public class Controladora {
        Juego unJuego = controlPersistencia.buscarUnJuego(idBusqueda);
         return unJuego;
     }
+
+    public void eliminarJuego(int idJuego) {
+            controlPersistencia.eliminarJuego(idJuego);
+    }
+
+    public void eliminarHorario(int idHorario) {
+            controlPersistencia.eliminarHorario(idHorario);
+    }
+
+    public List<Empleado> buscarEmpleado() {
+         List<Empleado> listaEmpleado = controlPersistencia.buscarEmpleado();
+         return listaEmpleado;
+    }
+
+    public List<Usuario> buscarUsuario() {
+         List<Usuario> listaUsuario = controlPersistencia.buscarUsuario();
+         return listaUsuario;
+    }
+
+    public void editarEmpleado(Empleado unEmpleado) {
+         controlPersistencia.editarEmpleado(unEmpleado);
+    }
+
+    public Empleado buscarUnEmpleado(int idBuscado) {
+        Empleado unEmpleado = controlPersistencia.buscarUnEmpleado(idBuscado);
+        return unEmpleado;
+    }
+
+    public void eliminarEmpleado(int idEmpleado) {
+        controlPersistencia.eliminarEmpleado(idEmpleado);
+    }
+
+    public void eliminarUsuario(int idUsuario) {
+         controlPersistencia.eliminarUsuario(idUsuario);
+    }
+
+    public boolean comprobarIngreso(String nombreUsuario, String claveUsuario) {
+        boolean siONo = false;
+        List<Usuario> listaUsuario = buscarUsuario();
+            for (Usuario unUsuario : listaUsuario) {
+                if(unUsuario.getNombreUsuario().equals(nombreUsuario) && (unUsuario.getClaveUsuario().equals(claveUsuario))){
+                    siONo = true;
+                    return siONo;
+                }
+        }
+        return siONo;
+    }
+
+ 
 
 
 

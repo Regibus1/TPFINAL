@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Juego implements Serializable {
@@ -20,30 +21,32 @@ public class Juego implements Serializable {
     private String nombreJuego;
     private int capacidadMax;
     private int edadMinima;
-    @OneToMany
-    private List<Horario> listaHorarios;
+    @OneToOne
+    private Horario unHorario;
     @OneToMany
     private List<Empleado> listaEmpleados;
 
     public Juego() {
     }
 
-    public Juego(int idJuego, String nombreJuego, int capacidadMax, int edadMinima, List<Horario> listaHorarios, List<Empleado> listaEmpleados) {
+    public Juego(int idJuego, String nombreJuego, int capacidadMax, int edadMinima, Horario unHorario, List<Empleado> listaEmpleados) {
         this.idJuego = idJuego;
         this.nombreJuego = nombreJuego;
         this.capacidadMax = capacidadMax;
         this.edadMinima = edadMinima;
-        this.listaHorarios = listaHorarios;
+        this.unHorario = unHorario;
         this.listaEmpleados = listaEmpleados;
     }
 
-    public List<Horario> getListaHorarios() {
-        return listaHorarios;
+    public Horario getUnHorario() {
+        return unHorario;
     }
 
-    public void setListaHorarios(List<Horario> listaHorarios) {
-        this.listaHorarios = listaHorarios;
+    public void setUnHorario(Horario unHorario) {
+        this.unHorario = unHorario;
     }
+
+
 
     public List<Empleado> getListaEmpleados() {
         return listaEmpleados;
@@ -85,6 +88,16 @@ public class Juego implements Serializable {
 
     public void setEdadMinima(int edadMinima) {
         this.edadMinima = edadMinima;
+    }
+    
+    public String toString(Juego unJuego){
+        Controladora control = new Controladora();
+        List<Horario> listaHorario = control.buscarHorario();
+        String stringJuego = "Nombre: " + unJuego.getNombreJuego() + "  | Id: " + unJuego.getIdJuego() +
+                "  | Capacidad Maxima: " + unJuego.getCapacidadMax() + "  | Edad minima: " + unJuego.getEdadMinima() + 
+                "  | Abre a las: " + listaHorario.get(unJuego.getIdJuego()).getHoraApertura() + 
+                " y Cierra a las: " + listaHorario.get(unJuego.getIdJuego()).getHoraCierre();
+        return stringJuego;
     }
     
 }

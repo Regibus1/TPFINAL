@@ -6,6 +6,7 @@ import Logica.Empleado;
 import Logica.Horario;
 import Logica.Juego;
 import Logica.Usuario;
+import Persistencia.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -78,6 +79,66 @@ public class ControladoraPersistencia {
          Juego unJuego = juegoJPA.findJuego(idBusqueda);
          return unJuego;
     }
+
+    public void eliminarJuego(int idJuego) {
+        
+        try {
+            juegoJPA.destroy(idJuego);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void eliminarHorario(int idHorario) {
+        
+        try {
+            horarioJPA.destroy(idHorario);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public List<Empleado> buscarEmpleado() {
+         List<Empleado> listaEmpleado = empleadoJPA.findEmpleadoEntities();
+         return listaEmpleado;
+    }
+
+    public List<Usuario> buscarUsuario() {
+        List<Usuario> listaUsuario = usuarioJPA.findUsuarioEntities();
+        return listaUsuario;
+    }
+
+  
+    public void editarEmpleado(Empleado unEmpleado) {
+        try {
+            empleadoJPA.edit(unEmpleado);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Empleado buscarUnEmpleado(int idBuscado) {
+        Empleado unEmpleado = empleadoJPA.findEmpleado(idBuscado);
+        return unEmpleado;
+    }
+
+    public void eliminarEmpleado(int idEmpleado) {
+        try {
+            empleadoJPA.destroy(idEmpleado);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void eliminarUsuario(int idUsuario) {
+        try {
+            usuarioJPA.destroy(idUsuario);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 
     
  

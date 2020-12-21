@@ -30,12 +30,12 @@
 
         <div class="container">
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="css/img/park.png" alt="" width="72" height="72">
+                <a alt="Ir a pagina de inicio" href="index.jsp"><img class="d-block mx-auto mb-4" src="css/img/park.png" alt="Logo" width="72" height="72"></a>
                 <h2>Formulario de Registro</h2>
                 <p class="lead">Debajo te encuentras con un formulario de registro para nuevos empleados</p>
             </div>
 
-            <div class="row">
+            <div class="row order-1">
 
                 <div class="col-md-8 order-md-1 mx-auto">
                     <h4 class="mb-3">Datos Personales</h4>
@@ -423,12 +423,10 @@
 
                         <div class="mb-3">
                             <label for="clave">Contraseña del Administrador</label>
-                            <div class="input-group">
+                            <div class="col-md-4">
 
                                 <input type="password" id="inputPassword" class="form-control" placeholder="" required name="claveAdmin">
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-secondary" onclick="comprobarClave()">Probar</button>
-                                </div>
+                             
                                 <div class="invalid-feedback">
                                     Contraseña del Admin requerido para finalizar el proceso.
                                 </div>
@@ -444,7 +442,9 @@
 
                 </div>
 
-                <footer class="my-5 pt-5 order-4 text-muted text-center text-small">
+               
+            </div>
+             <footer class="my-5 pt-5 text-muted text-center text-small">
                     <p class="mb-1">&copy; 2020 Abdias Jimenez</p>
                     <ul class="list-inline">
                         <li class="list-inline-item"><a href="#">Privacy</a></li>
@@ -452,7 +452,6 @@
                         <li class="list-inline-item"><a href="#">Support</a></li>
                     </ul>
                 </footer>
-            </div>
 
             <!-- Bootstrap core JavaScript
             ================================================== -->
@@ -460,10 +459,7 @@
 
             <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>');</script>
             <script>
-                function comprobarClave() {
-                    document.forms[0].action = "pruebaServlet";
-                    document.forms[0].submit();
-                }
+                
                 // Example starter JavaScript for disabling form submissions if there are invalid fields
                 (function () {
                     'use strict';

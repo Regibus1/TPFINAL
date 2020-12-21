@@ -1,8 +1,11 @@
 package Servlets;
 
 import Logica.Controladora;
+import Logica.Empleado;
+import Logica.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +30,7 @@ public class RegistroServlet extends HttpServlet {
             throws ServletException, IOException {
 
         
-
+        
         String nombreEmpleado = request.getParameter("nombre");
         String apellidoEmpleado = request.getParameter("apellido");
         String nombreUsuario = request.getParameter("username");
@@ -43,8 +46,19 @@ public class RegistroServlet extends HttpServlet {
         
         if (claveAdmin.equals("admin")) {
             Controladora control = new Controladora();
+            Empleado unEmpleado;
             control.crearUsuario(nombreUsuario, claveUsuario);
             control.crearEmpleado(nombreEmpleado, apellidoEmpleado, dniEmpleado, paisEmpleado);
+            List<Empleado> listaEmpleado = control.buscarEmpleado();
+            List<Usuario> listaUsuario = control.buscarUsuario();
+            for (int i = 0; i < listaEmpleado.size(); i++) {
+                if(nombreEmpleado.equals(listaEmpleado.get(i).getNombre())){
+                    unEmpleado = listaEmpleado.get(i);
+                    unEmpleado.setUnUsuario(listaUsuario.get(i));
+                    control.editarEmpleado(unEmpleado);
+                }
+            }
+            
             response.sendRedirect("index.jsp");
         }
         else{

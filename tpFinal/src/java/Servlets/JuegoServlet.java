@@ -9,13 +9,16 @@ import Logica.Controladora;
 import Logica.Horario;
 import Logica.Juego;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Time;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "JuegoServlet", urlPatterns = {"/JuegoServlet"})
 public class JuegoServlet extends HttpServlet {
@@ -31,7 +34,7 @@ public class JuegoServlet extends HttpServlet {
 
         Controladora control = new Controladora();
         String valorFormulario = request.getParameter("juegoForm");
-
+        
         if (valorFormulario.equals("crear")) {
 
             String nombreJuego = request.getParameter("nombreJuego");
@@ -42,6 +45,18 @@ public class JuegoServlet extends HttpServlet {
 
             control.crearJuego(nombreJuego, edadMinima, capacidadMaxima);
             control.crearHorario(horaApertura, horaCierre);
+             Juego unJuego;
+            
+            List<Juego> listaJuego = control.buscarJuego();
+            List<Horario> listaHorario = control.buscarHorario();
+            for (int i = 0; i < listaJuego.size(); i++) {
+                if(nombreJuego.equals(listaJuego.get(i).getNombreJuego())){
+                    unJuego = listaJuego.get(i);
+                    unJuego.setUnHorario(listaHorario.get(i));
+                    control.editarJuego(unJuego);
+                }
+            }
+            response.sendRedirect("home.jsp");
         }
 
         if (valorFormulario.equals("editar")) {
@@ -69,20 +84,52 @@ public class JuegoServlet extends HttpServlet {
                     
                     if(listaJuego.get(i).getIdJuego() == listaHorario.get(i).getIdHorario()){
                         unHorario = listaHorario.get(i);
-                        unHorario.setHoraApertura(Time.valueOf(horaApertura));
-                        unHorario.setHoraCierre(Time.valueOf(horaCierre));
+                        unHorario.setHoraApertura(horaApertura);
+                        unHorario.setHoraCierre(horaCierre);
                         control.editarHorario(unHorario);
                     }
                     control.editarJuego(unJuego);
+                    
+                    response.sendRedirect("home.jsp");
                 }
             }
 
         }
         
-       
-        response.sendRedirect("index.jsp");
+        if(valorFormulario.equals("buscar")){
+            String nombreBuscado = request.getParameter("busqueda");
+            List<Juego> listaJuego = control.buscarJuego();
+            int idBuscado = 1;
+            for(Juego unJuego : listaJuego) {
+                if (nombreBuscado.equals(unJuego.getNombreJuego())) {
+                    idBuscado = unJuego.getIdJuego();
+                    nombreBuscado = unJuego.toString(control.buscarUnJuego(idBuscado));
+                }
+            }
+            
+            request.getSession().setAttribute("unNombre", nombreBuscado);
+            response.sendRedirect("busqueda.jsp");
+        }
+        
+        if(valorFormulario.equals("eliminar")){
+            String juegoSeleccionado = request.getParameter("opcionEliminar");
+            
+            List<Juego> listaJuego = control.buscarJuego();
+            List<Horario> listaHorario = control.buscarHorario();
+            for (int i = 0; i < listaJuego.size(); i++) {
+                if(listaJuego.get(i).getNombreJuego().equals(juegoSeleccionado)){
+                    
+                    control.eliminarJuego(listaJuego.get(i).getIdJuego());
+                    control.eliminarHorario(listaJuego.get(i).getIdJuego());
+                }
+            }
+            for (int i = 0; i < listaJuego.size(); i++) {
+                listaJuego.get(i).setIdJuego(i+1);
+                listaHorario.get(i).setIdHorario(i+1);
+            }
+            response.sendRedirect("home.jsp");
+        }
     }
-
     @Override
     public String getServletInfo() {
         return "Short description";

@@ -1,8 +1,8 @@
-
 package Logica;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,18 +11,18 @@ import javax.persistence.Id;
 
 @Entity
 public class Horario implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idHorario;
     @Basic
-    private Time horaApertura;
-    private Time horaCierre;
+    private String horaApertura;
+    private String horaCierre;
 
     public Horario() {
     }
 
-    public Horario(int idHorario, Time horaApertura, Time horaCierre) {
+    public Horario(int idHorario, String horaApertura, String horaCierre) {
         this.idHorario = idHorario;
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
@@ -36,19 +36,21 @@ public class Horario implements Serializable {
         this.idHorario = idHorario;
     }
 
-    public Time getHoraApertura() {
+    public String getHoraApertura() {
         return horaApertura;
     }
 
-    public void setHoraApertura(Time horaApertura) {
+    public void setHoraApertura(String horaApertura) {
         this.horaApertura = horaApertura;
     }
 
-    public Time getHoraCierre() {
+    public String getHoraCierre() {
         return horaCierre;
     }
 
-    public void setHoraCierre(Time horaCierre) {
+    public void setHoraCierre(String horaCierre) {
         this.horaCierre = horaCierre;
     }
+
+ 
 }
